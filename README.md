@@ -1,3 +1,5 @@
 # Primitive test engine for JavaScript
 
-Example `./tester.test.js`
+Usage example 
+
+https://github.com/abyr/js-test-tools/blob/main/tester.test.js
