@@ -1,0 +1,25 @@
+{
+  "name": "js-test-tools",
+  "version": "1.0.0",
+  "description": "Primitive test tools for JavaScript",
+	"type": "module",
+  "main": "test-runner.js",
+  "scripts": {
+    "test": "node tester.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abyr/js-test-tools.git"
+  },
+  "keywords": [
+    "js",
+    "unit",
+    "test"
+  ],
+  "author": "Oleksandr Denysenko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abyr/js-test-tools/issues"
+  },
+  "homepage": "https://github.com/abyr/js-test-tools#readme"
+}
