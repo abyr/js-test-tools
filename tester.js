@@ -10,7 +10,7 @@ const tester = {
         }
     },
 
-    equals: function(expected, actual) {
+    equal: function(expected, actual) {
         if (expected !== actual) {
             throw new Error('assertEquals() "' + expected + '" not equals "' + actual + '"');
         }
