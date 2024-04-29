@@ -1,17 +1,35 @@
 const tester = {
 
-    fail: function(msg) {
-        throw new Error('fail(): ' + msg);
-    },
-
-    assert: function(value, msg) {
-        if (!value) {
-            throw new Error('assert(): ' + msg);
+    fail: function(msg = null) {
+        if (msg) {
+            throw new Error('fail(): ' + msg);
+        } else {
+            throw new Error('fail(): error');
         }
     },
 
-    equal: function(expected, actual) {
-        if (expected !== actual) {
+    assert: function(value, msg = null) {
+        if (value) {
+            return;
+        } 
+
+        if (msg) {
+            throw new Error(msg);
+        } else {
+            throw new Error('assert(): assert error');
+        }
+    },
+
+    equal: function(expected, actual, msg = null) {
+        const isEqual = expected === actual;
+
+        if (isEqual) {
+            return;
+        }
+
+        if (msg) {
+            throw new Error(msg);
+        } else {
             throw new Error('assertEquals() "' + expected + '" not equals "' + actual + '"');
         }
     }

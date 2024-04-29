@@ -10,6 +10,22 @@ export default group(`${filePath}: self test`, () => {
         tester.assert(1 == '1');
         tester.assert(true);
         tester.assert(!false);
+
+        tester.assert(1, 'One must be asserted');
+
+        const assertErrorText = 'Null is not asserted';
+        try {
+            tester.assert(null, assertErrorText);
+        } catch (err) {
+            tester.equal(err.message, assertErrorText);
+        }
+
+        const equalErrorText = 'Values are not equal';
+        try {
+            tester.equal('123', '234', equalErrorText);
+        } catch (err) {
+            tester.equal(err.message, equalErrorText);
+        }
     });
     test('equal', () => {        
         tester.equal('1', '1');
