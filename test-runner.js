@@ -1,6 +1,8 @@
 import * as path from "path";
 import * as util from "util";
 
+let failedTestsCount = 0;
+
 function group(name, tests) {
     const relativeFilenameOrName = relativeFilename(name);
 
@@ -8,6 +10,14 @@ function group(name, tests) {
     console.group();
     tests();
     console.groupEnd();
+
+    if (failedTestsCount > 0) {
+        console.log(``);
+        console.log(errorStr(`✖ Tests failed: ${failedTestsCount}`));
+        console.log(``);
+
+        process.exit(1);
+    } 
 }
 
 const test = function (title, fn) {
@@ -31,6 +41,8 @@ const result = title => err => {
         console.log(``);
         console.log(errorStr(`✖ ${title}`));
         console.error(err.actual || err);
+
+        failedTestsCount += 1;
     } else {
         console.log(successStr(`✔ ${title}`));
     }

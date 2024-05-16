@@ -32,4 +32,13 @@ export default group(`${filePath}: self test`, () => {
         tester.equal(true, !!1);
         tester.equal(1, Number('1'));
     });
+
+    group('Sub group test', () => {
+        test('assert', () => {
+            tester.assert(true);
+        });
+        test('equal', () => {        
+            tester.equal(true, !!1);
+        });
+    })
 });
